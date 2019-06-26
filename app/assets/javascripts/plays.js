@@ -87,6 +87,7 @@ var Play = function() {
 
         this.imagesIndexTable = self.generateIndexTable();
 
+        this.countdownTimer();
         setInterval(this.countdownTimer, 1000);
 
         self.buttonEl.onclick = self.handleButtonClick;
@@ -94,5 +95,9 @@ var Play = function() {
 };
 
 
-var play = new Play();
-play.initialize();
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById("play-game")) {
+        var play = new Play();
+        play.initialize();
+    }
+});

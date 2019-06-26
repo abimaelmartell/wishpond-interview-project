@@ -34,7 +34,7 @@ class UploadsController < ApplicationController
 private
 
   def upload_files_params
-    params[:upload][:file]
+    params.require(:upload).require(:file)
   end
 
   def find_upload

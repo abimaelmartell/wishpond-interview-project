@@ -1,8 +1,8 @@
 <h2>Uploads</h2>
 
 <%= form_for @upload do |f| %>
-  <div class="">
-    <%= f.file_field :file, multiple: true %>
+  <div class="upload-field">
+    <%= f.file_field :file, multiple: true, required: true %>
   </div>
 
   <%= f.submit("Upload!") %>
@@ -14,10 +14,26 @@
   <p>There are no uploads yet.</p>
 <% end %>
 
-<ul>
-  <% @uploads.each do |upload| %>
-  <li><%= link_to(upload.file.blob.filename, upload.file.attachment) %></li>
-  <li><%= link_to("Delete", upload, method: :delete) %></li>
-  <% end%>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @uploads.each do |upload| %>
+      <tr>
+        <td><%= upload.id %></td>
+        <td><%= image_tag(upload.file.attachment) %></td>
+        <td>
+          <ul>
+            <li><%= link_to("Delete", upload, method: :delete, data: { confirm: "Are you sure?" }) %></li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

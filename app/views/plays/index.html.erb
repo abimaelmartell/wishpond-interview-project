@@ -1,6 +1,16 @@
+<% if @random_images.empty? %>
+  <h1>Please upload some images to play.</h1>
+<% else %>
+<div id="play-game">
+  <h1 id="counter"></h1>
+
+  <div class="play-image-container">
+    <img id="counter-image" src="" alt="" />
+  </div>
+</div>
+
 <button id="save-play-button">Save Play!</button>
-<h1 id="counter"></h1>
-<img id="counter-image" src="" alt="" />
+<% end %>
 
 <script type="text/json" id="images-json">
 <%= ActiveSupport::JSON.encode(generate_uploads_json(@random_images)).html_safe %>

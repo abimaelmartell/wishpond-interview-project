@@ -9,11 +9,23 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+    <div class="container">
+      <div class="site-header">
+        <h1><%= link_to "Wishpond Interview Project", root_path %></h1>
 
-    <%= yield %>
+        <ul class="navigation-menu">
+          <li><%= link_to "Uploads", uploads_path %></li>
+          <li><%= link_to "Plays", plays_path %></li>
+        </ul>
+      </div>
+
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
