@@ -1,0 +1,25 @@
+<button id="save-play-button">Save Play!</button>
+<h1 id="counter"></h1>
+<img id="counter-image" src="" alt="" />
+
+<script type="text/json" id="images-json">
+<%= ActiveSupport::JSON.encode(generate_uploads_json(@random_images)).html_safe %>
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <th>Counter</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+
+  <tbody id="plays-table-tbody">
+    <% @plays.each do |play| %>
+      <tr>
+        <td><%= play.timer %></td>
+        <td><%= image_tag(play.upload.file.attachment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

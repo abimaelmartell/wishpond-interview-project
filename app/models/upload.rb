@@ -1,6 +1,8 @@
 class Upload < ApplicationRecord
   has_one_attached :file
 
+  scope :random, -> { order(Arel.sql("RANDOM()")) }
+
   validate :validate_uploaded_file, if: -> { file.attached? }
 
   def validate_uploaded_file

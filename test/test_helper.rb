@@ -15,5 +15,6 @@ class ActiveSupport::TestCase
 
   setup do
     Upload.delete_all
+    Play.delete_all
   end
 end
