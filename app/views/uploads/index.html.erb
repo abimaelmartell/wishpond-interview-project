@@ -1,0 +1,23 @@
+<h2>Uploads</h2>
+
+<%= form_for @upload do |f| %>
+  <div class="">
+    <%= f.file_field :file, multiple: true %>
+  </div>
+
+  <%= f.submit("Upload!") %>
+<% end %>
+
+<h3>Current uploads</h3>
+
+<% if @uploads.empty? %>
+  <p>There are no uploads yet.</p>
+<% end %>
+
+<ul>
+  <% @uploads.each do |upload| %>
+  <li><%= link_to(upload.file.blob.filename, upload.file.attachment) %></li>
+  <li><%= link_to("Delete", upload, method: :delete) %></li>
+  <% end%>
+</ul>
+
