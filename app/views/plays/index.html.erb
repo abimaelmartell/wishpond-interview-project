@@ -16,20 +16,5 @@
 <%= ActiveSupport::JSON.encode(generate_uploads_json(@random_images)).html_safe %>
 </script>
 
-<table>
-  <thead>
-    <tr>
-      <th>Counter</th>
-      <th>Image</th>
-    </tr>
-  </thead>
+<%= render "list", plays: @plays %>
 
-  <tbody id="plays-table-tbody">
-    <% @plays.each do |play| %>
-      <tr>
-        <td><%= play.timer %></td>
-        <td><%= image_tag(play.upload.file.attachment) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

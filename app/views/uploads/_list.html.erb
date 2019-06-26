@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% uploads.each do |upload| %>
+      <tr>
+        <td><%= upload.id %></td>
+        <td><%= image_tag(upload.file.attachment) %></td>
+        <td>
+          <ul>
+            <li><%= link_to("Delete", upload, method: :delete, data: { confirm: "Are you sure?" }) %></li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

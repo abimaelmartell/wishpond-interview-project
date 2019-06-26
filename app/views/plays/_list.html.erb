@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Counter</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+
+  <tbody id="plays-table-tbody">
+    <% plays.each do |play| %>
+      <tr>
+        <td><%= play.timer %></td>
+        <td><%= image_tag(play.upload.file.attachment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

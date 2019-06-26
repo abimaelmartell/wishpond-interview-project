@@ -1,0 +1,7 @@
+<%= form_for upload do |f| %>
+  <div class="upload-field">
+    <%= f.file_field :file, multiple: true, required: true %>
+  </div>
+
+  <%= f.submit("Upload!") %>
+<% end %>
