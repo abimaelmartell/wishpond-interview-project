@@ -12,15 +12,13 @@ class UploadsController < ApplicationController
       upload.file.attach(file)
 
       unless upload.save
-        flash[:error] = upload.errors.full_messages.join(", ")
+        redirect_to uploads_path, alert: upload.errors.full_messages.join(", ")
 
-        return redirect_to uploads_path
+        return
       end
     end
 
-    flash[:notice] = "Files uploaded succesfully."
-
-    redirect_to uploads_path
+    redirect_to uploads_path, notice: "Files uploaded succesfully."
   end
 
   def destroy

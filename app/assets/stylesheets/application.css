@@ -49,14 +49,11 @@ a:hover {
 .alert {
     padding: 20px;
     border-radius: 10px;
+    background: #e7ded1;
 }
 
 .alert-notice {
     background: #c5dde4;
-}
-
-.alert-error {
-    background: #e7ded1;
 }
 
 .navigation-menu {
